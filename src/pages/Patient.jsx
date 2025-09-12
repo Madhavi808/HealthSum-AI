@@ -1,6 +1,4 @@
 // src/pages/Dashboard.jsx
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
 import PatientsList from "../components/PatientsList";
 
 export default function Patient() {
