@@ -1,5 +1,4 @@
 // src/pages/Dashboard.jsx
-import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import StatsCard from "../components/StatsCard";
 import Appointments from "../components/Appointments";
@@ -37,11 +36,11 @@ export default function Dashboard() {
           </div>
 
           {/* Uploads + Timeline */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6"> 
             <Uploads />
             <Timeline />
           </div>
-</div>
+        </div>
         //   {/* Quick Actions */}
         //   {/* <QuickActions /> */}
         // {/* </main> */}
