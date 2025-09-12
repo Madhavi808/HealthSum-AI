@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/healthsum-ai/static/css/main.d3e8036c.css",
+    "main.js": "/healthsum-ai/static/js/main.bfa4ab44.js",
+    "static/js/453.68ab2d64.chunk.js": "/healthsum-ai/static/js/453.68ab2d64.chunk.js",
+    "index.html": "/healthsum-ai/index.html",
+    "main.d3e8036c.css.map": "/healthsum-ai/static/css/main.d3e8036c.css.map",
+    "main.bfa4ab44.js.map": "/healthsum-ai/static/js/main.bfa4ab44.js.map",
+    "453.68ab2d64.chunk.js.map": "/healthsum-ai/static/js/453.68ab2d64.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d3e8036c.css",
+    "static/js/main.bfa4ab44.js"
+  ]
+}
