@@ -94,10 +94,10 @@ const statusColors = {
 
 // Border colors for widgets
 const borderColors = {
-  Critical: "border-red-400",
-  Stable: "border-green-400",
-  Active: "border-blue-400",
-  Discharged: "border-gray-400",
+  Critical: "border-red-400 text-red-600",
+  Stable: "border-green-400 text-green-600",
+  Active: "border-blue-400 text-blue-600",
+  Discharged: "border-gray-400 text-gray-500",
 };
 
 
@@ -123,19 +123,19 @@ const PatientsList = () => {
       <div className="grid grid-cols-5 gap-4 mb-6">
         <div className={`p-4 bg-white rounded-xl shadow text-center border `}>
           <p className="text-2xl font-bold">6</p>
-          <p className="text-gray-500 text-sm">Total Patients</p>
+          <p className="text-gray-800 text-sm">Total Patients</p>
         </div>
         <div className={`p-4 bg-white rounded-xl shadow text-center border ${borderColors.Active}`}>
           <p className="text-2xl font-bold">2</p>
-          <p className="text-gray-500 text-sm">Active</p>
+          <p className="text-blue-700 text-sm">Active</p>
         </div>
         <div className={`p-4 bg-white rounded-xl shadow text-center border ${borderColors.Critical}`}>
           <p className="text-2xl font-bold">1</p>
-          <p className="text-gray-500 text-sm">Critical</p>
+          <p className="text-red-700 text-sm">Critical</p>
         </div>
         <div className={`p-4 bg-white rounded-xl shadow text-center border ${borderColors.Stable}`}>
           <p className="text-2xl font-bold">2</p>
-          <p className="text-gray-500 text-sm">Stable</p>
+          <p className="text-green-700 text-sm">Stable</p>
         </div>
         <div className={`p-4 bg-white rounded-xl shadow text-center border ${borderColors.Discharged}`}>
           <p className="text-2xl font-bold">1</p>
