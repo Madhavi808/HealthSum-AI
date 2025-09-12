@@ -2,7 +2,7 @@
 export default function StatsCard({ title, value, highlight }) {
   return (
     <div
-      className={`p-4 rounded-xl shadow-sm border bg-white ${
+      className={`flex justify-between items-center p-4 rounded-xl shadow-sm border bg-white ${
         highlight ? "border-red-500 bg-red-50" : ""
       }`}
     >

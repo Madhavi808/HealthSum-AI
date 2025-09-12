@@ -1,5 +1,6 @@
 // src/components/Appointments.jsx
 import { useState } from "react";
+import { Clock, User, Stethoscope, FileText } from "lucide-react";
 
 export default function Appointments() {
   const [filter, setFilter] = useState("Today");
@@ -19,7 +20,8 @@ export default function Appointments() {
   };
 
   return (
-    <div className="bg-white p-4 rounded-xl shadow-sm border">
+    <div className="bg-white p-3 rounded-xl shadow-sm border">
+      {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Today's Appointments</h3>
         <div className="flex gap-2">
@@ -27,10 +29,10 @@ export default function Appointments() {
             <button
               key={tab}
               onClick={() => setFilter(tab)}
-              className={`px-3 py-1 rounded-lg text-sm ${
+              className={`px-3 py-1 rounded-lg text-sm transition ${
                 filter === tab
                   ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-gray-600"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
               {tab}
@@ -39,18 +41,31 @@ export default function Appointments() {
         </div>
       </div>
 
+      {/* Appointment Cards */}
       <div className="space-y-3">
         {data.map((appt, i) => (
           <div
             key={i}
-            className="flex justify-between items-center p-3 border rounded-lg hover:bg-gray-50"
+            className="grid grid-cols-5 items-center gap-3 p-3 border rounded-lg hover:bg-gray-50"
           >
-            <span className="font-medium">{appt.time}</span>
-            <span>{appt.patient}</span>
-            <span className="text-gray-500">{appt.doctor}</span>
-            <span className="text-gray-500">{appt.type}</span>
+            <div className="flex items-center gap-2">
+              <Clock size={16} className="text-gray-500" />
+              <span className="font-medium">{appt.time}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <User size={16} className="text-gray-500" />
+              <span>{appt.patient}</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-600">
+              <Stethoscope size={16} />
+              <span>{appt.doctor}</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-600">
+              <FileText size={16} />
+              <span>{appt.type}</span>
+            </div>
             <span
-              className={`px-2 py-1 text-xs rounded-lg font-medium ${statusColors[appt.status]}`}
+              className={`px-2 py-1 text-xs rounded-lg font-medium text-center ${statusColors[appt.status]}`}
             >
               {appt.status}
             </span>

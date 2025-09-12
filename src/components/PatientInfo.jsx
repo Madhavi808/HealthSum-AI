@@ -6,11 +6,14 @@ import Documents from "./Documents";
 import AppointmentsSection from "./AppointmentsSection";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Calendar, HeartPulse, User, UserRound } from "lucide-react";
+import VitalSignsTrend from "./VitalSignsTrend";
 
 const PatientInfo = () => {
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState("Summary");
   const navigate = useNavigate();
+  
   // Dummy patient data (later fetch by ID)
   const patient = {
     id,
@@ -26,6 +29,29 @@ const PatientInfo = () => {
     ],
   };
 
+  const widgets = [
+    {
+      icon: <User className="text-blue-600" size={20} />,
+      label: "Age",
+      value: "45 years",
+    },
+    {
+      icon: <HeartPulse className="text-green-600" size={20} />,
+      label: "Gender",
+      value: "Male",
+    },
+    {
+      icon: <UserRound className="text-purple-600" size={20} />,
+      label: "Primary Condition",
+      value: "Hypertension, Diabetes",
+    },
+    {
+      icon: <Calendar className="text-orange-600" size={20} />,
+      label: "Last Visit",
+      value: "2024-01-15",
+    },
+  ];
+  
   return (
     <div className="">
       {/* Header */}
@@ -62,7 +88,7 @@ const PatientInfo = () => {
       </div>
 
       {/* Widgets */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      {/* <div className="grid grid-cols-4 gap-4 mb-6">
         <div className="p-4 bg-white rounded-xl shadow">
           <p className="text-sm text-gray-500">Age</p>
           <p className="text-lg font-bold">{patient.age} years</p>
@@ -79,11 +105,25 @@ const PatientInfo = () => {
           <p className="text-sm text-gray-500">Last Visit</p>
           <p className="text-lg font-bold">{patient.lastVisit}</p>
         </div>
-      </div>
+      </div> */}
 
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        {widgets.map((w, i) => (
+          <div
+            key={i}
+            className="flex items-center gap-3 bg-white border rounded-xl p-4 shadow-sm"
+          >
+            <div className="p-2 bg-gray-50 rounded-lg">{w.icon}</div>
+            <div>
+              <p className="text-sm text-gray-500">{w.label}</p>
+              <p className="font-semibold">{w.value}</p>
+            </div>
+          </div>
+        ))}
+      </div>
       {/* Tabs */}
       <div className="flex gap-4 border-b mb-6">
-        {["Summary", "Medical History", "Documents", "Appointments", "Alerts"].map((tab) => (
+        {["Summary", "Medical History", "Documents", "Appointments", "Notification"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -120,7 +160,8 @@ const PatientInfo = () => {
               </ul>
             </div>
           </div>
-            <PatientAlerts />
+          <VitalSignsTrend />
+            {/* <PatientAlerts /> */}
         </div>
       )}
 
@@ -139,7 +180,7 @@ const PatientInfo = () => {
         <AppointmentsSection />
       )}
 
-      {activeTab === "Alerts" && <PatientAlerts />}
+      {activeTab === "Notification" && <PatientAlerts />}
     </div>
   );
 };

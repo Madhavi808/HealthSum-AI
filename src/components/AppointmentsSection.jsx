@@ -15,16 +15,16 @@ const AppointmentsSection = () => {
     },
     {
       title: "Cardiology Consultation",
-      date: "2025-03-15",
+      date: "2025-03-15 at 9 AM",
       with: "Dr. Smith",
     },
   ];
 
   return (
-    <div className="bg-white rounded-xl shadow p-6">
+    <div className="bg-white rounded-xl shadow p-4">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="font-semibold text-lg">Appointments</h3>
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="font-semibold ">Appointments</h3>
         <button className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
           <Plus size={18} />
           Schedule New
@@ -36,15 +36,15 @@ const AppointmentsSection = () => {
         {appointments.map((appt, index) => (
           <div
             key={index}
-            className="flex justify-between items-start border p-4 rounded-lg hover:shadow-sm transition"
+            className="flex justify-between items-start border p-2 rounded-lg hover:shadow-sm transition"
           >
             {/* Left side - Icon + Info */}
             <div className="flex items-start gap-4">
               <Calendar size={28} className="text-blue-500 mt-1" />
               <div>
                 <p className="font-semibold text-gray-900">{appt.title}</p>
-                <p className="text-sm text-gray-500">{appt.date}</p>
-                <p className="text-sm text-gray-500">with {appt.with}</p>
+                <p className="text-sm text-gray-500">{appt.date} with {appt.with}</p>
+                
               </div>
             </div>
 

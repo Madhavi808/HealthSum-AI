@@ -39,17 +39,17 @@ const alerts = [
 
 const PatientAlerts = () => {
   return (
-    <div className="bg-white rounded-xl shadow p-5 ">
+    <div className="bg-white rounded-xl shadow p-4 ">
       <h2 className="font-semibold flex items-center gap-2 mb-4">
         {/* <AlertTriangle className="text-yellow-600" size={20} /> */}
-        Patient Alerts
+        Notification
       </h2>
 
       <div className="space-y-4">
         {alerts.map((alert) => (
           <div
             key={alert.id}
-            className={`rounded-xl shadow-sm p-4 flex items-start gap-3 ${alert.bg}`}
+            className={`rounded-xl shadow-sm p-2 flex items-start gap-3 ${alert.bg}`}
           >
             <div className="mt-1">{alert.icon}</div>
             <div>

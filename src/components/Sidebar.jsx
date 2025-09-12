@@ -43,9 +43,9 @@ export default function Sidebar() {
         </li>
         <li>
           <Link 
-            to="/patients" 
+            to="/uploads" 
             className="block px-3 py-2 rounded hover:bg-gray-200 flex items-center gap-3 p-2 rounded-lg hover:bg-blue-50 cursor-pointer"
-          ><Bot size={20} />
+          ><FileText size={20} />
             Upload and Summarize
           </Link>
         </li>

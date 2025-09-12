@@ -23,7 +23,7 @@ const MedicalHistory = () => {
   ];
 
   return (
-    <div className="py-4">
+    <div className="py-3">
       {/* <h3 className="font-semibold text-lg mb-6">Medical History</h3> */}
 
       {/* <div className="relative pl-6"> */}
@@ -32,7 +32,7 @@ const MedicalHistory = () => {
 
         {/* Items */}
         {history.map((item, index) => (
-          <div key={index} className="relative mb-8">
+          <div key={index} className="relative mb-4">
             {/* Colored marker segment */}
             <div
               className={`absolute left-2 w-1 h-full ${item.color}`}
@@ -41,7 +41,7 @@ const MedicalHistory = () => {
 
             {/* Content */}
             <div className="ml-6">
-              <p className="font-bold text-gray-900">{item.condition}</p>
+              <p className="font-semibold text-gray-900">{item.condition}</p>
               <p className="text-sm text-gray-600 font-semibold">
                 Diagnosed: {item.diagnosed}
               </p>

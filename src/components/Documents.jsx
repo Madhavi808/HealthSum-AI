@@ -26,7 +26,7 @@ const Documents = () => {
   ];
 
   return (
-    <div className="bg-white rounded-xl shadow p-5">
+    <div className="bg-white rounded-xl shadow p-4">
       {/* Header */}
       <div className="flex justify-between items-center mb-5">
         <h3 className="font-semibold ">Recent Documents</h3>
@@ -41,7 +41,7 @@ const Documents = () => {
         {documents.map((doc, index) => (
           <div
             key={index}
-            className="flex justify-between items-center border p-4 rounded-lg hover:shadow-sm transition"
+            className="flex justify-between items-center border p-2 rounded-lg hover:shadow-sm transition"
           >
             {/* Left side */}
             <div className="flex items-center gap-4">
