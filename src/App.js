@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import PatientInfo from "./components/PatientInfo";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar"; 
+import UploadSummarizePage from "./pages/UploadSummarizePage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                       <Route path="/" element={<Dashboard />} />
                       <Route path="/patients" element={<Patient />} />
                       <Route path="/patient/:id" element={<PatientInfo />} />
+                      <Route path="/uploads" element={<UploadSummarizePage />} />
                     </Routes>
                   </main>
                 </div>
