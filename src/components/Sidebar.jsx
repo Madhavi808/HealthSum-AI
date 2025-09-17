@@ -46,7 +46,15 @@ export default function Sidebar() {
             to="/uploads" 
             className="block px-3 py-2 rounded hover:bg-gray-200 flex items-center gap-3 p-2 rounded-lg hover:bg-blue-50 cursor-pointer"
           ><FileText size={20} />
-            Upload and Summarize
+            AI Summarize
+          </Link>
+        </li>
+        <li>
+          <Link 
+            to="/clinical-notes" 
+            className="block px-3 py-2 rounded hover:bg-gray-200 flex items-center gap-3 p-2 rounded-lg hover:bg-blue-50 cursor-pointer"
+          ><Bot size={20} />
+            AI Scribe
           </Link>
         </li>
       </ul>
