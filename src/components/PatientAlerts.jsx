@@ -42,7 +42,7 @@ const PatientAlerts = () => {
     <div className="bg-white rounded-xl shadow p-4 ">
       <h2 className="font-semibold flex items-center gap-2 mb-4">
         {/* <AlertTriangle className="text-yellow-600" size={20} /> */}
-        Notification
+        Notifications
       </h2>
 
       <div className="space-y-4">

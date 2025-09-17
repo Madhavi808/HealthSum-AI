@@ -9,9 +9,14 @@ import { useNavigate } from "react-router-dom";
 import { Calendar, HeartPulse, User, UserRound } from "lucide-react";
 import VitalSignsTrend from "./VitalSignsTrend";
 
+import SummaryDisplay from "./SummaryDisplay";
+import { useSummary } from "./SummaryContext";
+
+
 const PatientInfo = () => {
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState("Summary");
+  const { aiSummary, criticalAlerts, lastUpdated } = useSummary(); 
   const navigate = useNavigate();
   
   // Dummy patient data (later fetch by ID)
@@ -123,7 +128,7 @@ const PatientInfo = () => {
       </div>
       {/* Tabs */}
       <div className="flex gap-4 border-b mb-6">
-        {["Summary", "Medical History", "Documents", "Appointments", "Notification"].map((tab) => (
+        {["Summary", "Medical History", "Documents", "Appointments", "Notifications"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -140,28 +145,31 @@ const PatientInfo = () => {
 
       {/* Tab Content */}
       {activeTab === "Summary" && (
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl shadow p-4">
-            <h3 className="font-semibold mb-2">Latest AI Summary</h3>
-            <div className="bg-blue-50 p-3 rounded mb-2">
-              <p className="font-medium text-blue-700">Key Findings</p>
-              <ul className="text-sm text-blue-600 list-disc pl-4">
-                <li>Blood pressure improving</li>
-                <li>Medication compliance excellent</li>
-                <li>No adverse reactions</li>
-              </ul>
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="font-semibold">Latest AI Summary</h3>
+              {lastUpdated && (
+                <span className="text-xs text-gray-500">
+                  Updated: {lastUpdated.toLocaleString()}
+                </span>
+              )}
             </div>
-            <div className="bg-green-50 p-3 rounded">
-              <p className="font-medium text-green-700">Recommendations</p>
-              <ul className="text-sm text-green-600 list-disc pl-4">
-                <li>Continue current medication</li>
-                <li>Schedule follow-up in 3 months</li>
-                <li>Monitor blood pressure weekly</li>
-              </ul>
-            </div>
+
+            {aiSummary ? (
+              <SummaryDisplay summary={aiSummary} alerts={criticalAlerts} hideTitle />
+            ) : (
+              <SummaryDisplay
+                summary={`Blood pressure improving. Medication compliance excellent. No adverse reactions.
+    
+                Monitor blood pressure weekly. Schedule follow-up in 3 months`}
+                alerts={[]}
+                hideTitle
+              />
+            )}
           </div>
+
           <VitalSignsTrend />
-            {/* <PatientAlerts /> */}
         </div>
       )}
 
@@ -180,7 +188,7 @@ const PatientInfo = () => {
         <AppointmentsSection />
       )}
 
-      {activeTab === "Notification" && <PatientAlerts />}
+      {activeTab === "Notifications" && <PatientAlerts />}
     </div>
   );
 };
